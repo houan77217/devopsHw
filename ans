@@ -1,3 +1,4 @@
+1.1
 Please explain this command.
 
 docker run \
@@ -21,3 +22,11 @@ Ans:
 連結另外一個docker container mysql:db
 dns設置為10.0.0.1, 192.168.0.1, 並且輸入host讓他可以搜尋host.local.test.com, host.test.com的域名
 最後設置這個container name為test_docker
+
+2.2
+Please explain this command.
+
+docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+
+Ans:
+刪掉開頭為'<none>'的docker image，通常是build image過程中的cache
