@@ -1,0 +1,23 @@
+Please explain this command.
+
+docker run \
+	-d \
+	-e TEST_ENV=HELLO_WORLD \
+	-v /etc/localtime:/etc/localtime:ro \
+	-p 8080:80 \
+	-p 5566:443 \
+	--link mysql:db \
+	--dns=10.0.0.1 \
+	--dns=192.168.0.1 \
+	--dns-search=local.test.com \
+	--dns-search=test.com \
+	--name test_docker \
+	registry.local.test.com/infra/test_docker:0-17.08.03-caf85b05-rc
+
+Ans:
+執行／帶起來一個image名稱叫做registry.local.test.com/infra/test_docker, 版本為0-17.08.03-caf85b05-rc的Container
+且作為一個背景程式, 加入環境變數TEST_ENV, 從本機掛載localtime讓container吃到本機時區
+把container中的80和443port分別導到本機的8080和5566port
+連結另外一個docker container mysql:db
+dns設置為10.0.0.1, 192.168.0.1, 並且輸入host讓他可以搜尋host.local.test.com, host.test.com的域名
+最後設置這個container name為test_docker
