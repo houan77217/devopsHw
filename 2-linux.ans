@@ -1,0 +1,8 @@
+Please explain the functionality of the following two files in Linux operation system.
+
+/etc/hosts
+/etc/resolv.conf
+
+Ans:
+/etc/hosts 為IP, 域名對照表, 在查下面對照表之前會先查這個
+/etc/resolv.conf 則是DNS的對照表，用來指定DNS Server位置以及搜尋的網域名稱
